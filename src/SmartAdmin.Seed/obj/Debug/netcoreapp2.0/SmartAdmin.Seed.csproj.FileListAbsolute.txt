@@ -1,0 +1,12 @@
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\bin\Debug\netcoreapp2.0\SmartAdmin.Seed.deps.json
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\bin\Debug\netcoreapp2.0\SmartAdmin.Seed.runtimeconfig.json
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\bin\Debug\netcoreapp2.0\SmartAdmin.Seed.runtimeconfig.dev.json
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\bin\Debug\netcoreapp2.0\SmartAdmin.Seed.dll
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\bin\Debug\netcoreapp2.0\SmartAdmin.Seed.pdb
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\obj\Debug\netcoreapp2.0\SmartAdmin.Seed.csprojAssemblyReference.cache
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\obj\Debug\netcoreapp2.0\SmartAdmin.Seed.csproj.CoreCompileInputs.cache
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\obj\Debug\netcoreapp2.0\SmartAdmin.Seed.AssemblyInfoInputs.cache
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\obj\Debug\netcoreapp2.0\SmartAdmin.Seed.AssemblyInfo.cs
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\obj\Debug\netcoreapp2.0\SmartAdmin.Seed.dll
+G:\Công việc\Start-up\DEVELOPER\ASP.NET_Core2\src\SmartAdmin.Seed\obj\Debug\netcoreapp2.0\SmartAdmin.Seed.pdb
