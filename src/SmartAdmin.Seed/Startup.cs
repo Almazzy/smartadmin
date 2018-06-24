@@ -7,10 +7,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Nest;
 using SmartAdmin.Seed.Configuration;
 using SmartAdmin.Seed.Data;
 using SmartAdmin.Seed.Models;
 using SmartAdmin.Seed.Services;
+using System;
+using System.Diagnostics;
+using System.Text;
 
 // ReSharper disable UnusedMember.Global
 // ReSharper disable once ClassNeverInstantiated.Global
@@ -57,19 +61,36 @@ namespace SmartAdmin.Seed
             services.AddTransient<ApplicationDbSeeder>();
 
             // Enable the use of SQL Server utilizing DI
-            services.AddEntityFrameworkSqlServer();
+            //services.AddEntityFrameworkSqlServer();
+            
 
             // Add the default identity classes and schema for use with EntityFramework
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             // Enable the Context pool to manage the connections in an optimized manner
-            services.AddDbContextPool<ApplicationDbContext>(options => options.UseSqlServer(settings.ConnectionString));
+            //services.AddDbContextPool<ApplicationDbContext>(options => options.UseSqlServer(settings.ConnectionString));
+            services.AddDbContextPool<ApplicationDbContext>(options => options.UseMySql(settings.ConnectionString));
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
             // Cache 200 (OK) server responses; any other responses, including error pages, are ignored.
             services.AddResponseCaching();
+            // register the ES client as a singleton
+            services.Add(ServiceDescriptor.Singleton<IElasticClient>(
+                new ElasticClient(
+                    new ConnectionSettings(new Uri(settings.ElasticsearchUri))
+                        .DefaultIndex("articles")                        
+                        .DisableDirectStreaming()
+                        .OnRequestCompleted(details =>
+                        {
+                            Debug.WriteLine("### ES REQUEST ###");
+                            if (details.RequestBodyInBytes != null) Debug.WriteLine(Encoding.UTF8.GetString(details.RequestBodyInBytes));
+                            Debug.WriteLine("### ES RESPONSE ###");
+                            if (details.ResponseBodyInBytes != null) Debug.WriteLine(Encoding.UTF8.GetString(details.ResponseBodyInBytes));
+                        })
+                        .PrettyJson()
+                        )));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

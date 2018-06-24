@@ -17,6 +17,9 @@ namespace SmartAdmin.Seed.Configuration
         public string ConnectionString { get; set; }
 
         /// <summary>Indicates which SQL Server based database engine is used to host the application data.</summary>
-        public DatabaseServer Database { get; set; } = DatabaseServer.LocalDb;
+        public DatabaseServer Database { get; set; } = DatabaseServer.MySql;
+
+        /// <summary>Indicates which Elasticsearch Uri is used to send request to.</summary>
+        public string ElasticsearchUri { get; set; }
     }
 }

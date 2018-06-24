@@ -38,7 +38,7 @@ namespace SmartAdmin.Seed.Controllers
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
-        }
+        }        
 
         [HttpGet]
         [AllowAnonymous]

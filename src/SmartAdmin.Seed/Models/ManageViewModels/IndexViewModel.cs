@@ -1,5 +1,7 @@
-﻿#region Using
+#region Using
 
+using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 #endregion
@@ -8,8 +10,9 @@ namespace SmartAdmin.Seed.Models.ManageViewModels
 {
     public class IndexViewModel
     {
-        public string Username { get; set; }
 
+        public string ID { get; set; }
+        public string Username { get; set; }
         public bool IsEmailConfirmed { get; set; }
 
         [Required]
@@ -21,5 +24,9 @@ namespace SmartAdmin.Seed.Models.ManageViewModels
         public string PhoneNumber { get; set; }
 
         public string StatusMessage { get; set; }
+
+        public string FullName { get; set; }
+
+        public List<IdentityUserRole<string>> Roles { get; set; }
     }
 }

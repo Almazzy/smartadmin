@@ -12,6 +12,8 @@ namespace SmartAdmin.Seed.Configuration
         LocalDb,
 
         /// <summary>Indicates that the database is hosted by Azure.</summary>
-        AzureSql
+        AzureSql,
+
+        MySql
     }
 }

@@ -27,7 +27,7 @@
         <ul>
             <li is-active-route asp-controller="Home">
                 <a href="#" title="Dashboard">
-                    <i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span>
+                    <i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Bảng điều khiển</span>
                 </a>
                 <ul>
                     <li is-active-route asp-controller="Home" asp-action="Index">
@@ -36,6 +36,63 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li is-active-route asp-controller="Data">
+                <a href="#">
+                    <i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">Quản lý dữ liệu</span>
+                </a>
+                <ul>
+                    <li is-active-route asp-controller="Topics" asp-action="Index">
+                        <a asp-controller="Topics" asp-action="Index" title="Quản lý chủ đề">
+                            <i class="fa fa-file-text-o"></i>
+                            <span class="menu-item-parent">Chủ đề</span>
+
+                        </a>
+                    </li>
+                    <li is-active-route asp-controller="Source" asp-action="Index">
+                        <a asp-controller="Topics" asp-action="Index" title="Quản lý nguồn dữ liệu">
+                            <i class="fa fa-link"></i>
+                            <span class="menu-item-parent">Nguồn dữ liệu</span>
+                        </a>
+                    </li>
+                    <li is-active-route asp-controller="Search" asp-action="Index">
+                        <a asp-controller="Search" asp-action="Index" title="Tìm kiếm dữ liệu">
+                            <i class="fa fa-search"></i>
+                            <span class="menu-item-parent">Tìm kiếm</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li is-active-route asp-controller="Tasks" asp-action="Index">                
+                <a asp-controller="Tasks" asp-action="Index" title="Quản lý tác vụ">
+                    <i class="fa fa-lg fa-fw fa-tasks"></i>
+                    <span class="menu-item-parent">Quản lý tác vụ</span>
+                </a>
+
+            </li>
+            <li is-active-route asp-controller="Users" asp-action="Index">
+                <a href="#">
+                    <i class="fa fa-lg fa-fw fa-user"></i> <span class="menu-item-parent">Quản lý người dùng</span>
+                </a>
+                <ul>
+                    <li is-active-route asp-controller="Users" asp-action="Index">
+                        <a asp-controller="Users" asp-action="Index" title="Danh sách">
+                            <i class="fa fa-group"></i>
+                            <span class="menu-item-parent">Danh sách</span>
+                        </a>
+                    </li>
+                    <li is-active-route asp-controller="Users" asp-action="Permission">
+                        <a asp-controller="Users" asp-action="Permission" title="Phân quyền">
+                            <i class="fa fa-lock"></i>
+                            <span class="menu-item-parent">Phân quyền</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li is-active-route asp-controller="Report">
+                <a href="#">
+                    <i class="fa fa-lg fa-fw fa-file-pdf-o"></i> <span class="menu-item-parent">Quản lý báo cáo</span>
+                </a>
             </li>
             <li is-active-route asp-controller="Misc">
                 <a href="#">

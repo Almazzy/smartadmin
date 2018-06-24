@@ -1,6 +1,7 @@
 #region Using
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -51,6 +52,7 @@ namespace SmartAdmin.Seed.Controllers
             {
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
+            
 
             var model = new IndexViewModel
             {
@@ -500,5 +502,7 @@ namespace SmartAdmin.Seed.Controllers
         {
             return string.Format(AuthenicatorUriFormat, _urlEncoder.Encode("SmartAdmin.Web"), _urlEncoder.Encode(email), unformattedKey);
         }
+
+       
     }
 }

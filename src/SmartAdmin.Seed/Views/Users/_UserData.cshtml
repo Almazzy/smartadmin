@@ -1,0 +1,116 @@
+@{
+    @using SmartAdmin.Seed.Models.ManageViewModels
+    @model IndexViewModel
+}
+<article class="col-sm-12 col-md-12 col-lg-12">
+    <div class="jarviswidget" id="wid-id-3" data-widget-editbutton="true" data-widget-custombutton="true" data-widget-deletebutton="true">
+        <!-- widget options:
+        usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+        data-widget-colorbutton="false"
+        data-widget-editbutton="false"
+        data-widget-togglebutton="false"
+        data-widget-deletebutton="false"
+        data-widget-fullscreenbutton="false"
+        data-widget-custombutton="false"
+        data-widget-collapsed="true"
+        data-widget-sortable="false"
+
+        -->
+        <header>
+            <span class="widget-icon">
+                <i class="fa fa-edit"></i>
+            </span>
+            @if (ViewData["Action"] == null)
+            {
+                <h2>Tạo mới tài khoản </h2>
+            }
+            else
+            {
+                <h2>Chỉnh sửa thông tin tài khoản </h2>
+
+            }
+
+
+        </header>
+
+        <!-- widget div-->
+        <div>
+
+            <!-- widget edit box -->
+            <div class="jarviswidget-editbox">
+                <!-- This area used as dropdown edit box -->
+
+            </div>
+            <!-- end widget edit box -->
+            <!-- widget content -->
+            <div class="widget-body no-padding">
+                
+                <form action="" id="order-form" class="smart-form" novalidate="novalidate">
+                    <header>
+                        Điền thông tin người dùng
+                    </header>
+
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="input" asp-for="FullName">
+                                    <i class="icon-append fa fa-user"></i>
+                                    <input asp-for="FullName" type="text" name="name" placeholder="Họ và tên">
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="input">
+                                    <i class="icon-append fa fa-briefcase"></i>
+                                    <input type="text" name="company" placeholder="Phòng ban/Đơn vị">
+                                </label>
+                            </section>
+                        </div>
+
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="input" asp-for="Email">
+                                    <i class="icon-append fa fa-envelope-o"></i>
+                                    <input asp-for="Email" type="email" name="email" placeholder="E-mail">
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="input" asp-for="PhoneNumber">
+                                    <i class="icon-append fa fa-phone"></i>
+                                    <input asp-for="PhoneNumber" type="tel" name="phone" placeholder="Số điện thoại" data-mask="(999) 999-9999">
+                                </label>
+                            </section>
+                        </div>
+
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="input">
+                                    <i class="icon-append fa fa-key"></i>
+                                    <input type="password" name="password" placeholder="Mật khẩu">
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="input">
+                                    <i class="icon-append fa fa-key"></i>
+                                    <input type="password" name="confirm" placeholder="Nhập lại mật khẩu">
+                                </label>
+                            </section>
+                        </div>
+                    </fieldset>
+
+
+                    <footer>
+                        <button type="submit" class="btn btn-primary">
+                            Validate Form
+                        </button>
+                    </footer>
+                </form>
+
+            </div>
+            <!-- end widget content -->
+
+        </div>
+        <!-- end widget div -->
+
+    </div>
+</article>

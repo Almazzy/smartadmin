@@ -11,14 +11,15 @@ using System;
 namespace SmartAdmin.Seed.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180519091827_Add FullName to AspNetUsers")]
+    partial class AddFullNametoAspNetUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
-                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026");
+                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -38,7 +39,8 @@ namespace SmartAdmin.Seed.Data.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex");
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -105,11 +107,7 @@ namespace SmartAdmin.Seed.Data.Migrations
 
                     b.Property<string>("RoleId");
 
-                    b.Property<string>("IndexViewModelID");
-
                     b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("IndexViewModelID");
 
                     b.HasIndex("RoleId");
 
@@ -129,55 +127,6 @@ namespace SmartAdmin.Seed.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("SmartAdmin.Seed.Data.Entity.Posts", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("LastModified");
-
-                    b.Property<string>("PostContent");
-
-                    b.Property<string>("PostDescription");
-
-                    b.Property<string>("PostTitle")
-                        .IsRequired();
-
-                    b.Property<DateTime>("PublishedDate");
-
-                    b.Property<int?>("SourcesID");
-
-                    b.Property<string>("Url");
-
-                    b.Property<string>("_Tags");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("SourcesID");
-
-                    b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("SmartAdmin.Seed.Data.Entity.Sources", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("SourceName")
-                        .IsRequired();
-
-                    b.Property<int>("SourceTypeId");
-
-                    b.Property<string>("SourceUrl")
-                        .IsRequired();
-
-                    b.Property<string>("_SourceConfiguration");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Sources");
                 });
 
             modelBuilder.Entity("SmartAdmin.Seed.Models.ApplicationUser", b =>
@@ -227,32 +176,10 @@ namespace SmartAdmin.Seed.Data.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex");
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("SmartAdmin.Seed.Models.ManageViewModels.IndexViewModel", b =>
-                {
-                    b.Property<string>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Email")
-                        .IsRequired();
-
-                    b.Property<string>("FullName");
-
-                    b.Property<bool>("IsEmailConfirmed");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<string>("StatusMessage");
-
-                    b.Property<string>("Username");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("IndexViewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -281,10 +208,6 @@ namespace SmartAdmin.Seed.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("SmartAdmin.Seed.Models.ManageViewModels.IndexViewModel")
-                        .WithMany("Roles")
-                        .HasForeignKey("IndexViewModelID");
-
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
                         .WithMany()
                         .HasForeignKey("RoleId")
@@ -302,13 +225,6 @@ namespace SmartAdmin.Seed.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("SmartAdmin.Seed.Data.Entity.Posts", b =>
-                {
-                    b.HasOne("SmartAdmin.Seed.Data.Entity.Sources")
-                        .WithMany("Posts")
-                        .HasForeignKey("SourcesID");
                 });
 #pragma warning restore 612, 618
         }
